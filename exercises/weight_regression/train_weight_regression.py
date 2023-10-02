@@ -5,8 +5,6 @@ import numpy as np
 import torch
 from torch.utils.data import DataLoader
 from torch import nn
-from tqdm import tqdm
-from torch
 
 from exlib.model import WeightResNet34
 from exlib.dataset import WeightDataset
@@ -45,58 +43,67 @@ def val(model, valloader):
     return np.mean(losses_val)
 
 
-# def init_train_logger(args)
-# def print_log(msg, logger=None)
-# def close_logger(logger)
 
 
 if __name__ == '__main__':
 
     # directories
     data_dir = 'data/weight_regression'
-    depth_dir = osp.join(data_dir, 'depth_subsampled')
-    weights_train_df_path = osp.join(data_dir, 'weights_train.csv')
-    weights_val_df_path = osp.join(data_dir, 'weights_val.csv')
+    # data_dir = '/scratch/users/henrich1/data_summer_school/weight_regression'
+    images_base_dir = osp.join(data_dir, 'images')
+    train_df_path = osp.join(data_dir, 'train.csv')
+    val_df_path = osp.join(data_dir, 'val.csv')
+
+    exercise_dir = 'exercises/weight_regression'
+    results_dir = osp.join(exercise_dir, 'results')
 
     # parameters
-    initial_lr = 0.01
+    initial_lr = 0.001
+    batch_size = 8
+    decay_factor = 0.1
+    patience = 20
+    epochs = 150
 
-
-    logger = init_train_logger(save_dir), print_log, close_logger
-    
+    # logger
+    logger = init_train_logger(results_dir)
     
     # Initialize the model
+    print_log('Create training objects...', logger=logger)
     model = WeightResNet34().cuda()
 
     # datasets and dataloaders
-    trainset = WeightDataset(weights_train_df_path, depth_dir)
-    valset = WeightDataset(weights_val_df_path, depth_dir)
-    trainloader = DataLoader(trainset, batch_size=16, shuffle=True)
-    valloader = DataLoader(valset, batch_size=16, shuffle=False)    
+    trainset = WeightDataset(train_df_path, images_base_dir)
+    valset = WeightDataset(val_df_path, images_base_dir)
+    trainloader = DataLoader(trainset, batch_size=batch_size, shuffle=True)
+    valloader = DataLoader(valset, batch_size=batch_size, shuffle=False)    
 
     # loss criterion. optimizer and scheduler
     criterion = nn.MSELoss(reduction='mean')
-    optimizer = torch.optim.SGD(model.parameters(), lr=initial_lr)
-    scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', factor=0.1, patience=20, verbose=True)
+    optimizer = torch.optim.AdamW(model.parameters(), lr=initial_lr)
+    scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, factor=decay_factor, patience=patience)
 
     # train loop
-    epochs = 300
+    print_log('Start training...', logger=logger)
     train_losses = []
     val_losses = []
-    for epoch in tqdm(range(epochs)):
+    min_loss = 10000
+    for epoch in range(epochs):
         train_loss = train(model, optimizer, trainloader)
         val_loss = val(model, valloader)
+        scheduler.step(val_loss)
+        print_log(f'epoch: {epoch}/{epochs}, lr: {optimizer.param_groups[0]["lr"]}, train_loss: {train_loss}, val_loss: {val_loss}', logger=logger)
 
         train_losses.append(train_loss)
         val_losses.append(val_loss)
 
-        print(f'trainloss: {train_loss}')
-        print(f'valloss: {val_loss}')
-
+        # save data
+        if val_loss < min_loss:
+            torch.save(model.state_dict(), osp.join(results_dir, f'best_ckpt_epoch.pt'))
         metrics = pd.DataFrame({
             'train_loss': train_losses,
-            'val_loss': val_losses
+            'val_loss': val_losses,
+            'lr': optimizer.param_groups[0]['lr']
         })
-        metrics.to_pickle('/usr/users/henrich1/exercises_summer_school/data/train_weight/metrics.pkl')
+        metrics.to_pickle(osp.join(results_dir, 'metrics.pkl'))
 
-        
+    close_logger(logger)
