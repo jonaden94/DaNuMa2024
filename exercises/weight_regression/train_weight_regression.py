@@ -48,8 +48,8 @@ def val(model, valloader):
 if __name__ == '__main__':
 
     # directories
-    data_dir = 'data/weight_regression'
-    # data_dir = '/scratch/users/henrich1/data_summer_school/weight_regression'
+    # data_dir = 'data/weight_regression'
+    data_dir = '/scratch/users/henrich1/data_summer_school/weight_regression'
     images_base_dir = osp.join(data_dir, 'images')
     train_df_path = osp.join(data_dir, 'train.csv')
     val_df_path = osp.join(data_dir, 'val.csv')
