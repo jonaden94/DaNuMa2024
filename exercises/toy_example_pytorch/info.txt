@@ -1,0 +1,12 @@
+
+1. Erstellen der conda environment mit source setup.sh aus dem root directory der repos
+2. Dann sollte man exercises/toy_example_pytorch/toy_example.ipynb einfach von oben nach unten ausfhren können.
+
+
+
+Vielleicht noch ein paar Infos wie ich mir generell vorgestellt habe, dass die Infrastruktur sein sollte:
+
+- Alle Daten fuer die summer school (Bilder, Annotationen, ...) sollten von uns an einem Ort abgelegt werden können, sodass alle Teilnehmern der summer school dann read access kriegen können.
+- Es sollte möglich sein, dass jeder Teilnehmer seine eigene conda environment aufsetzen kann, um nach bedarf eigene packages zu installieren
+- Es sollte möglich sein, dass die Teilnehmer per ssh in einen gpu server kommen und dass jedem Teilnehmer eine separate gpu (oder groß genuger share einer gpu) zusteht. 15 Gb RAM sollten schon gegeben sein.
+- Am besten eignet sich als entwicklungsumgebung VScode. Da kann man dann einfach mit der remote explorer extension per ssh mit dem server zu verbinden und die gpu ressource direkt zur verfuegung zu haben.
