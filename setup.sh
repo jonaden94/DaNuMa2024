@@ -11,6 +11,7 @@ conda install -c conda-forge tqdm -y
 conda install -c conda-forge torchinfo -y
 conda install -c anaconda pandas -y
 conda install -c conda-forge matplotlib -y
+conda install anaconda::scikit-learn -y
 
 # install custom package from setup.py
 pip install -v -e .
