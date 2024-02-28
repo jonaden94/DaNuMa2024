@@ -3,5 +3,6 @@ data
 **/exlib/__pycache__/
 dev
 *.pt
+*.pth
 
 exlib.egg-info/*
