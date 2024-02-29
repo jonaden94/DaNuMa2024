@@ -6,3 +6,6 @@ dev
 *.pth
 
 exlib.egg-info/*
+
+
+**/detr**
