@@ -4,6 +4,7 @@ data
 dev
 *.pt
 *.pth
+**.pkl
 
 exlib.egg-info/*
 
