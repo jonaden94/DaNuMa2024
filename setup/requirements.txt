@@ -1,0 +1,6 @@
+torchinfo==1.8.0
+scikit-image==0.22.0
+segment-anything==1.0
+jupyter
+pandas
+torchtext

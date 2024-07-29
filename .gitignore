@@ -5,6 +5,7 @@ dev
 *.pt
 *.pth
 **.pkl
+*.sif
 
 exlib.egg-info/*
 

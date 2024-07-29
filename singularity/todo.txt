@@ -1,1 +1,11 @@
 packages in dockerfile are not yet adapted to what I need
+
+https://pad.gwdg.de/EHNKLc4zSFWyNzGZWk2JiA
+
+
+might need to install git first and then clone repo
+
+
+https://chat.gwdg.de/channel/hpc-users
+
+https://jupyter.hpc.gwdg.de

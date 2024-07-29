@@ -1,44 +1,31 @@
 Bootstrap: docker
-From: nvidia/cuda:11.3.1-cudnn8-runtime-ubuntu20.04
+From: condaforge/miniforge3
 
 %post
 
-addgroup --system --gid 300 slurmadmin
-adduser --system --uid 300 --gid 300 --home /opt/slurm/slurm \
-        --shell /bin/false slurmadmin
+    # Set proxy for the environment
+    export HTTPS_PROXY="http://www-cache.gwdg.de:3128"
+    export HTTP_PROXY="http://www-cache.gwdg.de:3128"
 
-apt-get -y update
-apt-get -y install python3.8
-apt-get -y install python3-pip
-apt-get -y install git
+    # Ensure wget uses the proxy by setting it explicitly in the environment
+    export http_proxy="http://www-cache.gwdg.de:3128"
+    export https_proxy="http://www-cache.gwdg.de:3128"
 
-pip3 install --upgrade pip
-pip3 install --upgrade setuptools
+    # Set proxy for apt directly in its config file
+    echo 'Acquire::http::Proxy "http://www-cache.gwdg.de:3128";' > /etc/apt/apt.conf
+    echo 'Acquire::https::Proxy "http://www-cache.gwdg.de:3128";' >> /etc/apt/apt.conf
 
-pip3 install \
-    cython \
-    gitpython \
-    h5py \
-    ipykernel \
-    jinja2 \
-    jupyterlab>=4.0.5 \
-    jupyterhub==2.3.1 \
-    ipyparallel>=8.6.1 \
-    notebook>=7.0.3 \
-    matplotlib \
-    numpy \
-    pandas \
-    protobuf \
-    pandas \
-    six==1.12.0 \
-    seaborn \
-    tqdm \
-    torch==1.12.1 \
-    torchvision==0.13.1 \
+    export DEBIAN_FRONTEND=noninteractive 
+    apt update 
+    apt upgrade -y
 
-%environment
-
-PATH=${PATH}:${LSF_BINDIR}:/cm/local/apps/cuda/libs/current/bin
-LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/cuda-10.1/lib64:/cm/local/apps/cuda-driver/libs/current/lib64
-CUDA_PATH=/usr/local/cuda-11.3.1
-CUDA_ROOT=/usr/local/cuda-11.3.1
+    conda install --quiet --yes \
+        'notebook=7.2.1' \
+        'jupyterhub=4.1.5' \
+        'jupyterlab=4.2.3'
+   
+    conda install --quiet --yes --channel pytorch --channel nvidia \
+        pytorch \
+        pytorch-cuda=12.1 \
+        torchaudio \
+        torchvision 

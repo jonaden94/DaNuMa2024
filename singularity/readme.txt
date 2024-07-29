@@ -9,3 +9,12 @@ if problems occur during building, check if tempdir is full and clean files if n
 
 # start jupyter notebook with gpu support:
 https://jupyter-hpc.gwdg.de/
+
+
+# run container self-contained (no outside filesystem)
+
+singularity exec --containall /user/henrich1/u12041/repos/exercises_summer_school/singularity/test_base_tutorial.sif /bin/bash
+
+
+conda install ipykernel
+python -m ipykernel install --user --name myenv --display-name "Python (myenv)"
