@@ -18,4 +18,4 @@ conda install jupyter -y
 conda install pandas -y
 
 # # install custom package from setup.py
-# pip install -r setup/requirements.txt
+pip install -r setup/requirements.txt

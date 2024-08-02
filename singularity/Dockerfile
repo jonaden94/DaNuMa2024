@@ -29,3 +29,8 @@ From: condaforge/miniforge3
         pytorch-cuda=12.1 \
         torchaudio \
         torchvision 
+
+    conda install munch --yes
+
+    # Create and name the kernel within the conda environment
+    conda run -n base python -m ipykernel install --name test --display-name "Python (test)"
