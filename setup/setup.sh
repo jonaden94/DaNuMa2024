@@ -17,5 +17,5 @@ conda install anaconda::scikit-learn -y
 conda install jupyter -y
 conda install pandas -y
 
-# # install custom package from setup.py
-pip install -r setup/requirements.txt
+# pip
+pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org --trusted-host pypi.python.org -r setup/requirements.txt
