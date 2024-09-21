@@ -10,5 +10,7 @@ dev
 
 exlib.egg-info/*
 
+.venv
+
 
 **/detr*
