@@ -14,6 +14,7 @@ conda install -c conda-forge tqdm -y
 conda install -c conda-forge torchinfo -y
 conda install -c conda-forge matplotlib -y
 conda install anaconda::scikit-learn -y
+conda install anaconda::seaborn -y
 conda install jupyter -y
 conda install pandas -y
 # conda install conda-forge::spacy -y # comment in to install
