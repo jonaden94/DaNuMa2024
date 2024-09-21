@@ -1,2 +1,3 @@
-scikit-image==0.22.0
+scikit-image==0.22
 segment-anything==1.0
+captum==0.7
