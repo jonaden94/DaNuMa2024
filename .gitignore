@@ -1,16 +1,11 @@
+# data folder
 data
-**/results/
-**/exlib/__pycache__/
-dev
+
+# large files
 *.pt
 *.pth
 **.pkl
 *.sif
+
+# irrelevant files
 .ipynb_checkpoints/
-
-exlib.egg-info/*
-
-.venv
-
-
-**/detr*

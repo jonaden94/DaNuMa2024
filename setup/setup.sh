@@ -14,8 +14,11 @@ conda install -c conda-forge tqdm -y
 conda install -c conda-forge torchinfo -y
 conda install -c conda-forge matplotlib -y
 conda install anaconda::scikit-learn -y
+conda install anaconda::seaborn -y
 conda install jupyter -y
 conda install pandas -y
+# conda install conda-forge::spacy -y # comment in to install
+# python -m spacy download en_core_web_sm # comment in to install
 
 # pip
 pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org --trusted-host pypi.python.org -r setup/requirements.txt
