@@ -9,3 +9,5 @@ data
 
 # irrelevant files
 .ipynb_checkpoints/
+
+.venv
