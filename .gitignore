@@ -6,6 +6,7 @@ data
 *.pth
 **.pkl
 *.sif
+*.zip
 
 # irrelevant files
 .ipynb_checkpoints/
