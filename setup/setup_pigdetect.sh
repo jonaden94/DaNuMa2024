@@ -23,7 +23,6 @@ git submodule update --init --recursive
 # cd ..
 
 ############## 4) build mmdetection, mmyolo and detection_utils
-cd ../PigDetect
 cd mmdetection
 pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org --trusted-host pypi.python.org -v -e .
 cd ..

@@ -24,4 +24,5 @@ python -m spacy download en_core_web_sm # comment in to install
 pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org --trusted-host pypi.python.org -r setup/requirements.txt
 
 # cd into pigdetect
+cd ../PigDetect
 source setup/setup_pigdetect.sh
