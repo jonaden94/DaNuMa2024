@@ -8,7 +8,7 @@ BASE_PATH = 'https://data.goettingen-research-online.de/api/access/datafile/:per
 danuma_data = {
     "1_introduction.zip": "3ZFUWQ",
     "3_mlp.zip": "3QVFJT",
-    "5_weight_regression.zip": "ARY2XR",
+    "5_weight_regression.zip": "VW2FQL",
     "6_keypoint_detection.zip": "6ZNSYZ",
     "7_instance_segmentation.zip": "GHEB4J",
     "8_natural_language_inference.zip": "MWFJN8",
@@ -44,15 +44,13 @@ if __name__ == "__main__":
 
     for danuma_name in danuma_data:
         download_danuma(danuma_name, raw_data_dir)
-        unzip(os.path.join(raw_data_dir, danuma_name), output_data_dir)
+        unzip(os.path.join(raw_data_dir, danuma_name), raw_data_dir)
     
     os.makedirs(os.path.join(raw_data_dir, '8_natural_language_inference'), exist_ok=True)
-    os.makedirs(os.path.join(output_data_dir, '7_instance_segmentation'), exist_ok=True)
     for third_party_name in third_party_data:
         
         if 'sam' in third_party_name:
-            pass
-            # download_third_party(third_party_name, os.path.join(raw_data_dir, '7_instance_segmentation'))
+            download_third_party(third_party_name, os.path.join(raw_data_dir, os.path.join('7_instance_segmentation', 'pretrained')))
         elif 'glove' in third_party_name:
             download_third_party(third_party_name, raw_data_dir)
             unzip(os.path.join(raw_data_dir, third_party_name), os.path.join(raw_data_dir, '8_natural_language_inference'))
