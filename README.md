@@ -22,7 +22,7 @@ Note that this setup takes a while since many packages need to be installed. It 
 ```
 python tools/download_data.py
 ```
-The download might take a couple of minutes. If it is finished, everything should be properly set up to run the exercises. To work on an exercise, you need to open the notebook and select the kernel of the *danuma* environment. You can then just start running the cells of the notebook since all data should already be in the appropriate locations. It should be noted that setting up conda environments can sometimes be hard since you might need to adjust some installation commands depending on your specific system parameters.
+The download might take a couple of minutes. If it is finished, everything should be properly set up to run the exercises. To work on an exercise, you need to open the notebook and select the kernel of the *danuma* environment. You can then just start running the cells of the notebook since all data should already be in the appropriate locations. Remember to set `colab = False` at the start of the notebooks. It should be noted that setting up conda environments can sometimes be cumbersome since you might need to adjust some installation commands depending on your specific system parameters.
 
 ## Using the repository with Google Colab
 Once again, exercises 7-9 unfortunately do not work on Colab. Running the other exercises on Colab is relatively simple. Make sure that you have a Google account and then go to the Google Colab website:
