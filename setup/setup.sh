@@ -24,6 +24,7 @@ python -m spacy download en_core_web_sm # comment in to install
 pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org --trusted-host pypi.python.org -r setup/requirements.txt
 
 # clone pigdetect, cd into it, and install it
+cd ..
 git clone https://github.com/jonaden94/PigDetect
-cd ../PigDetect
-source setup/setup_pigdetect.sh
+cd PigDetect
+source ../DaNuMa2024/setup/setup_pigdetect.sh

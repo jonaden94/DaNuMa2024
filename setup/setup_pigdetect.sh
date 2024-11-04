@@ -31,6 +31,4 @@ cd mmyolo
 pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org --trusted-host pypi.python.org -r requirements/albu.txt
 pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org --trusted-host pypi.python.org albumentations==1.3.1 # this downgrade is necessary to avoid conflicts with mmyolo
 mim install --trusted-host pypi.org --trusted-host files.pythonhosted.org --trusted-host pypi.python.org --trusted-host download.openmmlab.com -v -e .
-cd ..
-
-pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org --trusted-host pypi.python.org -v -e .
+cd ../../DaNuMa2024

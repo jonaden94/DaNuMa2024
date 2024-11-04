@@ -1,7 +1,7 @@
 ## General information
 ![combined_image](https://github.com/user-attachments/assets/22de7f10-d7cb-42c1-be5e-0d31360dba24)
 
-This repository contains the exercises and solutions of the DaNuMa 2024 summer school "machine learning in animal science". It also contains functionality to automatically download all data required to run the exercises. The repository can be used in two ways:
+This repository contains the exercises and solutions of the DaNuMa 2024 summer school "machine learning in animal science". The data required to run the exercises can be found [here](https://doi.org/10.25625/9AIY3V). However, this repository also contains functionality to automatically download all data, so you do not have to manually download it to run the exercises. This repository can be used in two ways:
 
 1\) You can install the required packages and download all required data to your own machine. This is the recommended way in the long-term if you want to modify and extend research code, but it requires a linux-based machine with access to GPUs (usually some kind of compute server) for faster computation. Instructions for installation and data download are given below under **Using the repository on your own machine**
 
