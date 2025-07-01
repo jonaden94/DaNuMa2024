@@ -38,4 +38,5 @@ All notebooks from the repository should then be shown and you can simply select
 ## Acknowledgements
 This work was funded with NextGenerationEU funds from the European Union by the Federal Ministry of Education and Research under the funding code 16DKWN038. The responsibility for the content of this publication lies with the authors.
 
-![329264093-812c4f7b-13fd-4493-8347-3be8d50c22b4](https://github.com/user-attachments/assets/9544edfb-2dfd-4c5c-8550-a0fb4294561d)
+![combined](https://github.com/user-attachments/assets/a2e5c701-bd72-4221-a316-55bfa64fefa3)
+
