@@ -36,7 +36,7 @@ https://github.com/jonaden94/DaNuMa2024
 All notebooks from the repository should then be shown and you can simply select which notebook you want to run. To run the notebook on a GPU, you still have to change one thing. Select runtime &#8594; change runtime and then select a T4 GPU. In the free version of Colab, you have limited computational resources. You can also connect to your own GitHub repositories with Colab (for example your own version of the summer school repository). In that case you can directly save changes that you make to your notebooks as commits, which might be a convenient way to update your projects.
 
 ## Acknowledgements
-This work was funded with NextGenerationEU funds from the European Union by the Federal Ministry of Education and Research under the funding code 16DKWN038. The responsibility for the content of this publication lies with the authors.
+This work was funded with NextGenerationEU funds from the European Union by the Federal Ministry of Research, Technology and Space under the funding code 16DKWN038. The responsibility for the content of this publication lies with the authors.
 
 ![combined](https://github.com/user-attachments/assets/a2e5c701-bd72-4221-a316-55bfa64fefa3)
 
